@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    text-align: center;
+    margin: 0;
+}
+
+.section {
+    margin: 40px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    background: white;
+    border-radius: 8px;
+}
+
+h1, h2 {
+    color: #003366;
+}
+
+ol {
+    text-align: left;
+    display: inline-block;
+}
+
+ul {
+    color: #555;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

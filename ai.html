@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Are The Odds Game</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: white;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .container {
+        background: rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 15px;
+        max-width: 400px;
+        margin: auto;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    input {
+        padding: 10px;
+        font-size: 16px;
+        width: 80%;
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        background-color: #00c6ff;
+        color: white;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background-color: #0072ff;
+    }
+
+    .number {
+        font-size: 60px;
+        margin: 20px 0;
+        font-weight: bold;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>What Are The Odds?</h1>
+    
+    <p>Pick a number in your head...</p>
+
+    <input type="number" id="maxNumber" placeholder="Enter max number (e.g. 10)" min="1">
+
+    <br>
+    <button onclick="generateNumber()">Generate</button>
+
+    <div id="result" class="hidden">
+        <div class="number" id="generatedNumber">?</div>
+        <p id="question"></p>
+
+        <button onclick="answer(true)">Yes 😳</button>
+        <button onclick="answer(false)">No 😅</button>
+
+        <p id="response"></p>
+    </div>
+</div>
+
+<script>
+function generateNumber() {
+    const max = parseInt(document.getElementById("maxNumber").value);
+
+    if (!max || max < 1) {
+        alert("Please enter a valid number greater than 0.");
+        return;
+    }
+
+    const randomNum = Math.floor(Math.random() * max) + 1;
+
+    document.getElementById("generatedNumber").textContent = randomNum;
+    document.getElementById("question").textContent = "Is this the number you were thinking of?";
+    document.getElementById("response").textContent = "";
+    document.getElementById("result").classList.remove("hidden");
+}
+
+function answer(isMatch) {
+    const response = document.getElementById("response");
+
+    if (isMatch) {
+        response.textContent = "NO WAY 🤯 That’s crazy!";
+    } else {
+        response.textContent = "Dang... try again 😄";
+    }
+}
+</script>
+
+</body>
+</html>
